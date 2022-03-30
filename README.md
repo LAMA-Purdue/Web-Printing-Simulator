@@ -1,6 +1,4 @@
-# SLS-3D-Printing-Simulator
-
-## LAMA club at Purdue
+# LAMA 3D Printing Simulator
 
 ### Laser
 ### Additive
