@@ -10,8 +10,9 @@ let fileByLine = [];
 let lineCounter = 0;
 
 let pointBoxes = [];
+let point = [];
 
-const defaultZ = 16;
+const defaultZ = 18;
 const boxSize = 2;
 
 let prevVector = [0,0, defaultZ];
@@ -88,16 +89,15 @@ function draw() {
   drawLaser(getNextPoint());
 
   fill(50,50,50);
-  translate(0,0, defaultZ);
-  pointBoxes.forEach((point) => {
-    translate(point[0], point[1], 0);
-    noStroke();
+  noStroke();
+  for (let i = 0; i < pointBoxes.length - 1; i++) {
+    point = pointBoxes[i];
+    translate(point[0], point[1], defaultZ);
     box(boxSize,boxSize,boxSize);
-    translate(-point[0], -point[1], 0);
-  });
-  translate(0,0, defaultZ);
-
+    translate(-point[0], -point[1], -defaultZ);
+  }
   stroke(0,0,0);
+
 
   // Move camera via arrow keys
   if (keyDown === LEFT_ARROW) {
@@ -120,7 +120,7 @@ function drawLaser(vectorToPoint) {
   line(vectorToPoint[0], vectorToPoint[1], vectorToPoint[2], 0, 0, 300);
 
   if (vectorToPoint[0] != prevVector[0] || vectorToPoint[1] != prevVector[1] || vectorToPoint[2] != prevVector[2]) {
-    pointBoxes.push(vectorToPoint);
+    pointBoxes.push([vectorToPoint[0], vectorToPoint[1], vectorToPoint[2]]);
   }
 
   stroke(0,0,0);
@@ -141,8 +141,8 @@ function getNextPoint() {
 
   do {
     commandName = fileByLine[lineCounter].split(" ")[0];
-    if(fileByLine.length - lineCounter > 10) {
-      lineCounter += 10;
+    if(fileByLine.length - lineCounter > 5) {
+      lineCounter += 3;
     } else {
       fileByLine = [];
       return [0,0,-1];
