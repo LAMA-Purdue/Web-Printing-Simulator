@@ -2,4 +2,4 @@
 
 This (hacked together) code shows a (very) rough visualization of a laser parsing and building a gcode file uploaded by a user.
 
-[Try it out here](https://lama-purdue.github.io/Web-Printing-Simulator/)
+[Try it out here](https://lama-purdue.github.io/Web-Printing-Simulator/), pick any .gcode file and orbit around the scene with your arrow keys.
