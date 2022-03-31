@@ -6,7 +6,6 @@ This (hacked together) code shows a (very) rough visualization of a laser parsin
 
 
 ## TODO:
-- Clean up code (its a mess lmao)
 - Draw lines between points, using extruder commands as pen up/pen down
 - Add support for Z axis commands
 - Add a "recoater" blade that moves before every Z command
